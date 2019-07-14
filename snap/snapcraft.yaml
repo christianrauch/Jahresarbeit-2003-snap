@@ -23,6 +23,10 @@ confinement: strict
 icon: icon1.png
 
 parts:
+  desktop-glib:
+      source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+      source-subdir: glib-only
+      plugin: make
   ja2003:
     plugin: cmake
     source: https://github.com/christianrauch/Jahresarbeit-2003.git
@@ -34,13 +38,20 @@ parts:
       - libsdl2-2.0-0
       - libsdl2-image-2.0-0
       - libsdl2-ttf-2.0-0
+    after: [desktop-glib]
+  launcher:
+    plugin: dump
+    source: ./
+    parse-info: [ja2003.metainfo.xml]
 
 apps:
   ja2003:
-    command: sh -c 'cd ${SNAP}/opt/Jahresarbeit-2003/ && ./ja2003'
+    command: desktop-launch sh -c 'cd ${SNAP}/opt/Jahresarbeit-2003/ && ./ja2003'
+    # command: desktop-launch ${SNAP}/opt/Jahresarbeit-2003/ja2003
     environment:
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
     plugs:
       - opengl
       - wayland
       - x11
+    common-id: ja2003.ja2003
