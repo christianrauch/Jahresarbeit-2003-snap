@@ -17,7 +17,7 @@ description: |
   um alle Quadrate zu entfernen so wenig Klicks wie möglich
   gebrauchen, da diese die Endpunktzahl verringern.
 
-grade: devel # must be 'stable' to release into candidate/stable channels
+grade: stable
 confinement: strict
 
 icon: icon1.png
