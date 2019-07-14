@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Jahresarbeit 2003
+Exec=jahresarbeit-2003.ja2003
+Icon=${SNAP}/meta/gui/icon.png
