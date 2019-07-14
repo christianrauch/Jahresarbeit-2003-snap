@@ -1,0 +1,44 @@
+name: jahresarbeit-2003
+base: core18
+version: '2.0'
+summary: Find die größte Fläche von zusammenhängenden Quadraten
+description: |
+  Das Programm "Jahresarbeit 2003" entstand als Jahresarbeit
+  im Fach Informatik. Nach Spielstart sieht man ein 9x9 Feld
+  mit verschiedenfarbigen Quadraten. Am Rand des Feldes sind
+  Pfeile zu erkennen, welche genutzt werden um die Reihen und
+  Spalten in denen sich die Quadrate befinden zu verschieben.
+  Zusammenhängende gleichfarbige Quadrate bilden eine Fläche,
+  welche durch draufklicken entfernt wird.
+  Ziel des Spieles ist es eine möglichst große Fläche in kür-
+  zester Zeit weg zu klicken. Das Spiel ist zu Ende wenn alle
+  Quadrate entfernt sind oder es keine Möglichkeit mehr gibt
+  um die restlichen Quadrate zu entfernen. Jedoch sollte man
+  um alle Quadrate zu entfernen so wenig Klicks wie möglich
+  gebrauchen, da diese die Endpunktzahl verringern.
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict
+
+parts:
+  ja2003:
+    plugin: cmake
+    source: https://github.com/christianrauch/Jahresarbeit-2003.git
+    build-packages:
+      - libsdl2-dev
+      - libsdl2-image-dev
+      - libsdl2-ttf-dev
+    stage-packages:
+      - libsdl2-2.0-0
+      - libsdl2-image-2.0-0
+      - libsdl2-ttf-2.0-0
+
+apps:
+  ja2003:
+    command: sh -c 'cd ${SNAP}/opt/Jahresarbeit-2003/ && ./ja2003'
+    environment:
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+    plugs:
+      - opengl
+      - wayland
+      - x11
