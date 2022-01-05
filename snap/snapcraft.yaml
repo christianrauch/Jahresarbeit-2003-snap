@@ -1,5 +1,5 @@
 name: jahresarbeit-2003
-base: core18
+base: core20
 version: '2.0'
 summary: Find die größte Fläche von zusammenhängenden Quadraten
 description: |
