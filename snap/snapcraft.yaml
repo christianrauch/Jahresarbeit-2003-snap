@@ -36,13 +36,17 @@ parts:
       - libsdl2-2.0-0
       - libsdl2-image-2.0-0
       - libsdl2-ttf-2.0-0
+      - libdecor-0-0
+      - libdecor-0-plugin-1-cairo
 
 apps:
   ja2003:
     command: opt/Jahresarbeit-2003/ja2003
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/pulseaudio
+      SDL_VIDEODRIVER: wayland,x11
+      LIBDECOR_PLUGIN_DIR: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/libdecor/plugins-1/
     plugs:
-      - opengl
       - wayland
       - x11
+    extensions: [gnome]
