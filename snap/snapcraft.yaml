@@ -1,5 +1,5 @@
 name: jahresarbeit-2003
-base: core20
+base: core22
 version: '2.0'
 summary: Find die größte Fläche von zusammenhängenden Quadraten
 description: |
@@ -41,7 +41,7 @@ apps:
   ja2003:
     command: opt/Jahresarbeit-2003/ja2003
     environment:
-      LD_LIBRARY_PATH: $SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/pulseaudio
     plugs:
       - opengl
       - wayland
