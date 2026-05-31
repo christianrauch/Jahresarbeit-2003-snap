@@ -44,8 +44,20 @@ parts:
       - libsdl3-image0
       - libsdl3-ttf0
 
+  gpu-2604:
+    after: [ja2003]
+    source: https://github.com/canonical/gpu-snap.git
+    plugin: dump
+    override-prime: |
+      craftctl default
+      ${CRAFT_PART_SRC}/bin/gpu-2604-cleanup mesa-2604
+    prime:
+      - bin/gpu-2604-wrapper
+
 apps:
   ja2003:
+    command-chain:
+      - bin/gpu-2604-wrapper
     command: opt/Jahresarbeit-2003/ja2003
     environment:
       LD_LIBRARY_PATH: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pulseaudio
@@ -53,3 +65,13 @@ apps:
       - opengl
       - wayland
       - x11
+
+layout:
+  /usr/share/X11/XErrorDB:
+    bind-file: $SNAP/gpu-2604/usr/share/X11/XErrorDB
+
+plugs:
+  gpu-2604:
+    interface: content
+    target: $SNAP/gpu-2604
+    default-provider: mesa-2604
