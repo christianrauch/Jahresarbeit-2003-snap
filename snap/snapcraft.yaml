@@ -1,4 +1,5 @@
 name: jahresarbeit-2003
+title: "Jahresarbeit 2003"
 base: core26
 version: '2.2'
 summary: Find die größte Fläche von zusammenhängenden Quadraten
@@ -16,6 +17,12 @@ description: |
   um die restlichen Quadrate zu entfernen. Jedoch sollte man
   um alle Quadrate zu entfernen so wenig Klicks wie möglich
   gebrauchen, da diese die Endpunktzahl verringern.
+
+source-code: https://github.com/christianrauch/Jahresarbeit-2003
+license: GPL-2.0-or-later
+contact: Rauch.Christian@gmx.de
+issues: https://github.com/christianrauch/Jahresarbeit-2003/issues
+website: https://github.com/christianrauch/Jahresarbeit-2003
 
 grade: stable
 confinement: strict
