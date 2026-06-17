@@ -1,7 +1,7 @@
 name: jahresarbeit-2003
 title: "Jahresarbeit 2003"
 base: core26
-version: '2.2'
+version: '2.3'
 summary: Find die größte Fläche von zusammenhängenden Quadraten
 description: |
   Das Programm "Jahresarbeit 2003" entstand als Jahresarbeit
@@ -33,7 +33,7 @@ parts:
   ja2003:
     plugin: cmake
     source: https://github.com/christianrauch/Jahresarbeit-2003.git
-    source-branch: "2.2"
+    source-branch: "2.3"
     source-depth: 1
     build-packages:
       - libsdl3-dev
