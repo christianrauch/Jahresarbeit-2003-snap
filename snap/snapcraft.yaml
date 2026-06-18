@@ -33,7 +33,7 @@ parts:
   ja2003:
     plugin: cmake
     source: https://github.com/christianrauch/Jahresarbeit-2003.git
-    source-branch: "2.3"
+    source-branch: master
     source-depth: 1
     build-packages:
       - libsdl3-dev
